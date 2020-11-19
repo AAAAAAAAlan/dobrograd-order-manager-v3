@@ -13,7 +13,11 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
-    "nuxt": "^2.13.0"
+    "nuxt": "^2.13.0",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^4.3.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
