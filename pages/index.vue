@@ -18,3 +18,8 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.container > *
+  margin 0 5px
+</style>
