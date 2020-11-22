@@ -1,7 +1,11 @@
 <template lang="pug">
   vuescroll.products-list(:ops="ops")
       transition-group(name="list" mode="out-in").products-grid
-        ProductCard(v-for="product in searchedProducts" :key="product.id" :product="product")
+        ProductCard(
+          v-for="product in searchedProducts" 
+          :key="product.id" 
+          :product="product"
+          )
 </template>
 
 <script>

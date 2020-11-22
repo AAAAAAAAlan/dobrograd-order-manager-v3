@@ -1,5 +1,5 @@
 <template lang="pug">
-  .product-card.flex.items-center
+  .product-card.flex.items-center(draggable @dragstart='startDrag($event, product)')
     img(
       :src="require(`~/assets/icons/products/${productType.type_name}.png`)" 
       :alt="`profession.name`"
@@ -25,13 +25,15 @@ export default {
     ...mapState({
       productTypes: (state) => state.productTypes,
     }),
-    // type() {
-    //   return this.product.product_types[0]
-    // },
     productType() {
       return this.productTypes.find(
         (productType) => productType.id === this.product.product_types[0]
       )
+    },
+  },
+  methods: {
+    startDrag(evt, item) {
+      this.$store.commit('items/SET_DRAGGABLE_ITEM', item)
     },
   },
 }
@@ -41,7 +43,7 @@ export default {
 .product-card
   width 100%
   background-color #efefef
-  border-radius 6px
+  border-radius 8px
   padding 5px 10px
   img
     margin-right 15px

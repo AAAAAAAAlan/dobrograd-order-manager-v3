@@ -22,4 +22,9 @@ export default {
 <style lang="stylus" scoped>
 .container > *
   margin 0 5px
+
+// TODO BASIC RESPONSIVE
+@media (max-width: 300px)
+  .container
+    flex-direction column
 </style>

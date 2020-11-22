@@ -30,7 +30,7 @@ export default {
   background-color #efefef
   height 64px
   width 120px !important
-  border-radius 6px
+  border-radius 8px
   padding 2px
   margin 0 5px
   p
