@@ -6,6 +6,7 @@
         :key="profession.id" 
         :profession="profession"
         )
+    ProductsSearch
     ProductsList
 </template>
 
@@ -15,6 +16,7 @@ import { mapState } from 'vuex'
 import VueSlickCarousel from 'vue-slick-carousel'
 import ProfessionCard from '~/components/Products/ProfessionCard'
 import ProductsList from '~/components/Products/ProductsList'
+import ProductsSearch from '~/components/Products/ProductsSearch'
 
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import '~/assets/css/vue-slick-carousel-theme.css'
@@ -25,6 +27,7 @@ export default {
     ProfessionCard,
     ProductsList,
     VueSlickCarousel,
+    ProductsSearch,
   },
   computed: {
     ...mapState({
@@ -38,7 +41,7 @@ export default {
 .products
   width 400px
   min-width 400px
-  height 386.36px
+  height 340px
   background #554455
   box-shadow 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius 8px

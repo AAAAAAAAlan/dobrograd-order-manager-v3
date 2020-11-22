@@ -1,16 +1,18 @@
 <template lang="pug">
   .product-card.flex.items-center
     img(
-      :src="require(`~/assets/icons/products/${type.type_name}.png`)" 
+      :src="require(`~/assets/icons/products/${productType.type_name}.png`)" 
       :alt="`profession.name`"
       :draggable="false")
     .product-description
       p.name {{ product.name }}
-      p.price {{ product.price }}
-      p.type {{ type.description }}
+      p.price {{ `${product.price}Р` }}
+      p.type {{ productType.description }}
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'ProductCard',
   props: {
@@ -20,8 +22,16 @@ export default {
     },
   },
   computed: {
-    type() {
-      return this.product.product_types[0]
+    ...mapState({
+      productTypes: (state) => state.productTypes,
+    }),
+    // type() {
+    //   return this.product.product_types[0]
+    // },
+    productType() {
+      return this.productTypes.find(
+        (productType) => productType.id === this.product.product_types[0]
+      )
     },
   },
 }
@@ -37,6 +47,8 @@ export default {
     margin-right 15px
     height 48px
     width 48px
+    // height 50px
+    // width 50px
   .product-description
     p
       padding 2px

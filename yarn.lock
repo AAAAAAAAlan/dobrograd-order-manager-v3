@@ -8997,6 +8997,11 @@ vue@^2.6.10, vue@^2.6.12:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
 
+vuescroll@^4.16.1:
+  version "4.16.1"
+  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.16.1.tgz#498099fd0e0a47bf09e1d0cb91fc3533a6804e58"
+  integrity sha512-7fRsG2Yw5Z07LUz/IIu9barpmYiN9q+ZTC+CrVamvCbmsxyhz8mU1OuYFbfORysaUskioNMxTGDo+HOzeDfSyQ==
+
 vuex@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.5.1.tgz#f1b8dcea649bc25254cf4f4358081dbf5da18b3d"
