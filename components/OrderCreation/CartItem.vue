@@ -4,8 +4,8 @@
       :src="require(`~/assets/icons/products/${productType.type_name}.png`)"
       )
     p.name {{ item.name }}
-    p.price {{ `${item.price}Р` }}
-    img.close.cursor-pointer(@click="removeItem()" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABQElEQVRIie2UMU7DQBBFH+uNiOiJxA0oTEVFFZGEIKBAjuRTWoqhAWFhBPSpcJEbgMIRPDYUJEqwHXvSQJMvudmdnTe788ew1X9rp7jgD/xXYE+MXIZRONMk8YZex+b2hi/SIA66q3umIr4NHNvcxt7Q6yiTx8AJhnZxvwxocQW8Aa7N7cvofHSwLrl/4e/b3D4CLjAl5boYU3qixUFSYuAImGZO1hs/jN/rYhBOg+fgQwVogmiT1wLWQRzjiDZ5IwB+NdEFkvmyCyRipN/ktEZAxU3QVL5QlU1VynYzVXGNAG/odUh54qf6ZP4dOpkTaeakFlDyuXBGix7KOYENbLr65po5qQVofK6FlH92GwyRBlLuQcrd/EAiRrp1Vgzug08xMmDZ+NtiTFWTBZhohgggjMKZGOkDEyBrit/q7/UNeNLCu4NoRMQAAAAASUVORK5CYII=')
+    p.price {{ `${item.price.toLocaleString()}Р` }}
+    img.close.cursor-pointer(@click="removeItem()" :draggable="false" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABQElEQVRIie2UMU7DQBBFH+uNiOiJxA0oTEVFFZGEIKBAjuRTWoqhAWFhBPSpcJEbgMIRPDYUJEqwHXvSQJMvudmdnTe788ew1X9rp7jgD/xXYE+MXIZRONMk8YZex+b2hi/SIA66q3umIr4NHNvcxt7Q6yiTx8AJhnZxvwxocQW8Aa7N7cvofHSwLrl/4e/b3D4CLjAl5boYU3qixUFSYuAImGZO1hs/jN/rYhBOg+fgQwVogmiT1wLWQRzjiDZ5IwB+NdEFkvmyCyRipN/ktEZAxU3QVL5QlU1VynYzVXGNAG/odUh54qf6ZP4dOpkTaeakFlDyuXBGix7KOYENbLr65po5qQVofK6FlH92GwyRBlLuQcrd/EAiRrp1Vgzug08xMmDZ+NtiTFWTBZhohgggjMKZGOkDEyBrit/q7/UNeNLCu4NoRMQAAAAASUVORK5CYII=')
     
 </template>
 
@@ -58,4 +58,8 @@ export default {
     font-weight 600
     margin-bottom 2px
     text-align center
+  .close
+    pointer-events all
+    user-select none
+    user-drag none
 </style>

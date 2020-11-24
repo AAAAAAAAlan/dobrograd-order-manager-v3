@@ -6,7 +6,7 @@
       :draggable="false")
     .product-description
       p.name {{ product.name }}
-      p.price {{ `${product.price}Р` }}
+      p.price {{ `${product.price.toLocaleString()}Р` }}
       p.type {{ productType.description }}
 </template>
 

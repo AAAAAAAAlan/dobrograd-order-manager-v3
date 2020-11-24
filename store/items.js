@@ -5,6 +5,9 @@ export const state = () => ({
   draggedItem: null,
 
   cart: [],
+  userName: '',
+
+  markup: 30,
 })
 
 export const mutations = {
@@ -29,5 +32,13 @@ export const mutations = {
 
   REMOVE_FROM_CART(state, index) {
     state.cart.splice(index, 1)
+  },
+
+  SET_USERNAME(state, userName) {
+    state.userName = userName
+  },
+
+  SET_MARKUP(state, markup) {
+    state.markup = markup
   },
 }

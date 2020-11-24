@@ -2,16 +2,23 @@
   .order-creation
     UsernameForm
     Dropzone
+    OrderSum
+    CreateOrderActions
 </template>
 
 <script>
+import CreateOrderActions from '~/components/OrderCreation/CreateOrderActions'
 import UsernameForm from '~/components/OrderCreation/UsernameForm'
 import Dropzone from '~/components/OrderCreation/Dropzone'
+import OrderSum from '~/components/OrderCreation/OrderSum'
+
 export default {
   name: 'OrderCreation',
   components: {
     UsernameForm,
     Dropzone,
+    OrderSum,
+    CreateOrderActions,
   },
 }
 </script>

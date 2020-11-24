@@ -1,11 +1,16 @@
 <template lang="pug">
   .dropzone(
+    :class="{ dropzone_ondraghover: isHovered }"
     @drop="onDrop($event)" 
     @dragover.prevent 
-    @dragenter.prevent 
+    @dragenter="onEnter()"
+    @dragleave="onLeave()"
     )
     transition(name="drag" mode="out-in")
-      .dashes.flex.items-center.justify-center(v-if="cart.length < 1")
+      .dashes.flex.items-center.justify-center(
+        v-if="cart.length < 1" 
+        @dragenter="onEnter()"
+        )
         p Перетащите сюда предмет
       vuescroll.cart(v-else :ops="ops")
         transition-group(name="list" mode="out-in").products-grid
@@ -38,6 +43,7 @@ export default {
         rail: {},
         bar: { background: '#c1c1c1' },
       },
+      isHovered: false,
     }
   },
   computed: {
@@ -48,6 +54,13 @@ export default {
   methods: {
     onDrop(evt) {
       this.$store.commit('items/ADD_DROPPED')
+      this.isHovered = false
+    },
+    onEnter() {
+      this.isHovered = true
+    },
+    onLeave() {
+      this.isHovered = false
     },
   },
 }
@@ -58,11 +71,11 @@ export default {
   margin-top 20px
   border-radius 8px
   background-color #efefef
-  border 2px solid #554455
   width 100%
   height 120px
   padding 10px
   .dashes
+    pointer-events none
     height 100%
     width 100%
     border-radius 8px
