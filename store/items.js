@@ -70,6 +70,7 @@ export const mutations = {
       })
 
       state.cart = []
+      state.cartItems = []
       state.userName = ''
     }
   },
