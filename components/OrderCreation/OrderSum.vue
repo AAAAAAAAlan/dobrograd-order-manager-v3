@@ -32,6 +32,11 @@ export default {
       return markup
     },
   },
+  watch: {
+    orderSumMarkup(newValue, oldValue) {
+      this.$store.commit('items/SET_ORDER_SUM_MARKUP', newValue)
+    },
+  },
 }
 </script>
 
