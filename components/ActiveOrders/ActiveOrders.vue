@@ -6,7 +6,7 @@
         transition-group(name="list" mode="out-in")
           ActiveOrderCard(
             v-for="(order, index) in orders"
-            :key="index + order.name"
+            :key="order.price.toFixed()"
             :order="order"
             :index="index"
             )

@@ -67,6 +67,7 @@ export const mutations = {
         items: state.cartItems,
         price: state.orderSumMarkup,
         creationTime: new Date(),
+        face: 'male1',
       })
 
       state.cart = []
@@ -77,5 +78,9 @@ export const mutations = {
 
   COMPLETE_ORDER(state, index) {
     state.orders.splice(index, 1)
+  },
+
+  SET_FACE(state, obj) {
+    state.orders[obj.index].face = obj.face
   },
 }

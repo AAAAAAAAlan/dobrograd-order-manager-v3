@@ -1,7 +1,16 @@
 <template lang="pug">
   .active-order-card
     .wrapper.flex.justify-around
-      img
+      .images
+        transition(name="fade" mode="out-in")
+          img.cursor-pointer(
+            :key="order.face"
+            :index="index"
+            :src="require(`~/assets/faces/${order.face}.png`)"
+            @click="showFaceSelection = !showFaceSelection"
+            )
+        transition(name="list")
+          FaceSelection(v-if="showFaceSelection" :index="index")
       .info
         h2.name.font-bold {{ order.name }}
         p.order-item(v-for="item in orderArr") {{ item }}
@@ -12,9 +21,13 @@
 
 <script>
 import moment from 'moment'
+import FaceSelection from '~/components/ActiveOrders/FaceSelection'
 
 export default {
   name: 'ActiveOrderCard',
+  components: {
+    FaceSelection,
+  },
   props: {
     order: {
       type: Object,
@@ -28,6 +41,7 @@ export default {
   data() {
     return {
       time: '',
+      showFaceSelection: false,
     }
   },
   computed: {
@@ -39,9 +53,14 @@ export default {
 
       return arr
     },
-    // time() {
-    //   return moment(this.order.creationTime).fromNow()
-    // },
+    currentFace() {
+      return this.order.face
+    },
+  },
+  watch: {
+    currentFace(newValue, oldValue) {
+      this.showFaceSelection = false
+    },
   },
   created() {
     setInterval(() => {
@@ -65,6 +84,9 @@ export default {
     width 48px
     height 48px
     margin-right 10px
+    pointer-events all
+    user-select none
+    user-drag none
   .info
     margin-right 20px
     h2
@@ -86,4 +108,20 @@ export default {
     width 100%
     height 25px
     background: #66abab
+
+.list-enter-active, .list-leave-active
+  transition all 0.2s
+
+.list-enter, .list-leave-to
+  opacity 0
+  transform translateY(-100%)
+
+.fade-enter-active,
+.fade-leave-active
+  transition all 0.3s ease
+  opacity 1
+
+.fade-enter,
+.fade-leave-to
+  opacity 0
 </style>
