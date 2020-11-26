@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/yandex-metrika": "^1.3.0",
     "moment": "^2.29.1",
     "nuxt": "^2.13.0",
     "pug": "^3.0.0",
