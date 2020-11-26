@@ -1,5 +1,9 @@
 # dobrograd-order-manager-v3
 
+## Обновлённое приложение для отслеживания заказов на сервере Garry's Mod - Новый Доброград [(octothorp.team)](https://octothorp.team/).
+
+![](https://i.imgur.com/2Y1OgPl.png)
+
 ## Build Setup
 
 ```bash
