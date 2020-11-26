@@ -66,7 +66,7 @@ export default {
   .products-grid
     margin 0 5px
     display grid
-    grid-template-columns: repeat(2, auto)
+    grid-template-columns: repeat(2, 48.5%)
     gap 10px
 
 .list-enter-active, .list-leave-active
