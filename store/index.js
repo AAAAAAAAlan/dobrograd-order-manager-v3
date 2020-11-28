@@ -68,7 +68,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ commit, error }, { app }) {
+  async nuxtServerInit({ commit }, { app, error }) {
     // Get product types.
     try {
       const productTypes = await app.$axios.get(
