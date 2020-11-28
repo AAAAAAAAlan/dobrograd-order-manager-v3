@@ -68,23 +68,27 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ commit }, { app }) {
+  async nuxtServerInit({ commit }, { app }, { error }) {
     // Get product types.
-    const productTypes = await app.$axios.get(
-      'https://dbgo-backend.herokuapp.com/product-types'
-    )
-    commit('SET_PRODUCT_TYPES', productTypes.data)
+    try {
+      const productTypes = await app.$axios.get(
+        'https://dbgo-backend.herokuapp.com/product-types'
+      )
+      commit('SET_PRODUCT_TYPES', productTypes.data)
 
-    // Get professions.
-    const professions = await app.$axios.get(
-      'https://dbgo-backend.herokuapp.com/professions'
-    )
-    commit('SET_PROFESSIONS', professions.data)
+      // Get professions.
+      const professions = await app.$axios.get(
+        'https://dbgo-backend.herokuapp.com/professions'
+      )
+      commit('SET_PROFESSIONS', professions.data)
 
-    // Get products.
-    const products = await app.$axios.get(
-      'https://dbgo-backend.herokuapp.com/products'
-    )
-    commit('SET_PRODUCTS', products.data)
+      // Get products.
+      const products = await app.$axios.get(
+        'https://dbgo-backend.herokuapp.com/products'
+      )
+      commit('SET_PRODUCTS', products.data)
+    } catch {
+      error('Error on [nuxtServerInit] action.')
+    }
   },
 }
